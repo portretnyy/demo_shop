@@ -2,20 +2,18 @@ package ru.portretnyy.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
-@Component
+
 public class Robot {
     private final CentralComputer centralComputer;
     private final Engine engine;
     private final Arm leftArm;
     private final Arm rightArm;
 
-    @Autowired
     public Robot(CentralComputer centralComputer,
                  Engine engine,
-                 @Qualifier("weaponArm") Arm leftArm,
-                 @Qualifier("repairArm") Arm rightArm) {
+                 Arm leftArm,
+                 Arm rightArm) {
         this.centralComputer = centralComputer;
         this.engine = engine;
         this.leftArm = leftArm;
