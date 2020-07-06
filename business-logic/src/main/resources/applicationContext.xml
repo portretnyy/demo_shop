@@ -17,7 +17,7 @@
 
     <bean id="repairArm" class="ru.portretnyy.beans.RepairArm"/>
 
-    <bean id="robot" class="ru.portretnyy.beans.Robot">
+    <bean id="robot" class="ru.portretnyy.beans.Robot" scope="prototype">
         <constructor-arg name="centralComputer" ref="centralComputer"/>
         <constructor-arg name="engine" ref="engine"/>
         <constructor-arg name="leftArm" ref="destructor"/>
