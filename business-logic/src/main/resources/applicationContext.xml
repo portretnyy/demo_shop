@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ctx="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="centralComputer" class="ru.portretnyy.beans.CentralComputerImpl"/>
+
+    <bean id="engine" class="ru.portretnyy.beans.ReactiveEngine">
+        <constructor-arg name="maxSpeed" value="1000"/>
+        <constructor-arg name="powerLimit" value="450"/>
+    </bean>
+
+    <bean id="destructor" class="ru.portretnyy.beans.WeaponArm"/>
+
+    <bean id="repairArm" class="ru.portretnyy.beans.RepairArm"/>
+
+    <bean id="robot" class="ru.portretnyy.beans.Robot">
+        <constructor-arg name="centralComputer" ref="centralComputer"/>
+        <constructor-arg name="engine" ref="engine"/>
+        <constructor-arg name="leftArm" ref="destructor"/>
+        <constructor-arg name="rightArm" ref="repairArm"/>
+    </bean>
+
+</beans>
